@@ -1,0 +1,14 @@
+:root {
+    --te-py: #2c7be5; /* theme primary */
+    --te-sy: #27bcfd; /* theme secondary */
+    --te-ty: #00d27a; /* theme tertiary */
+    --te-nl: #edf2f9; /* theme neutral */
+
+    --sc-cn: #ffff6f; /* sematic caution */
+
+    --ft-we: #ffffff; /* font white (Always a white color despite the preferred color scheme) */
+    --ft-bk: #000000; /* font black (Always a black color despite the preferred color scheme) */
+
+    --bd-we: #ffffff; /* background white (Always a white color despite the preferred color scheme) */
+    --bd-bk: #000000; /* background black (Always a black color despite the preferred color scheme) */
+}

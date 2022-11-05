@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/root.css">
+
+    <script src="/static/js/cs-render.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Login</title>
+</head>
+<body>
+    <div id="login-body">
+        <form action="/api/login" method="post">
+            {{ login_form.csrf_token }}
+            <h1 id="login-header">Login</h1>
+
+            <div id="login-container">
+                <div id="login-email-container" class="login-input-container">
+                    <label for="login-email-input" id="login-email-label" class="login-label">Email address</label>
+                    <input type="text" name="login_email_input" id="login-email-input" class="login-input" autocomplete="email" spellcheck="false">
+                </div>
+                
+                <div id="login-password-container" class="login-input-container">
+                    <label for="login-password-input" id="login-password-label" class="login-label">Password</label>
+                    <input type="password" name="login_password_input" id="login-password-input" class="login-input" autocomplete="current-password">
+                </div>
+
+                <button type="submit" id="login-submit-btn">Login</button>
+
+                {% if decoded_errors %}
+                    <div id="errors-container">
+                        {% for error_name, error_message in decoded_errors.items() %}
+                            <p class="error">
+                                <span class="error-title">{{ str(login_form[error_name].label).split('>')[1].split('<')[0] }}: </span>
+                                <span class="error-description">{{ error_message[0] }}</span>
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
