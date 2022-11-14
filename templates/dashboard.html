@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/root.css">
+
+    <script src="/static/js/cs-render.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Dashboard</title>
+</head>
+<body>
+    <h3>{{ databases.Users.query.filter_by(id=current_user.get_id()).first() }}</h3>
+    {% for list_ in databases.Users.query.filter_by(id=current_user.get_id()).first().get_user_list_metadata() %}
+        <ol class="container">
+            {% for attribute in list_ %}
+                <li class="item"> <b>{{ attribute }}</b> : {{ list_[attribute] }}</li>
+            {% endfor %}
+        </ol>
+    {% endfor %}
+    <pre>{{ databases.Users.query.filter_by(id=current_user.get_id()).first().get_user_list_metadata() }}</pre>
+</body>
+</html>

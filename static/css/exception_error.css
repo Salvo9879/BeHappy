@@ -1,0 +1,56 @@
+* {
+    overflow-x: hidden;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    background-color: var(--bd-py);
+}
+
+#error-img {
+    width: 500px;
+}
+
+#error-title {
+    text-align: center;
+
+    color: var(--ft-py);
+}
+
+.error-message {
+    width: 500px;
+
+    text-align: center;
+
+    color: var(--ft-py);
+}
+
+#error-code {
+    position: absolute;
+    bottom: 0;
+
+    color: var(--ft-ty);
+}
+
+@media(max-width: 420px) {
+    body {
+        height: 90vh;
+    }
+
+    #error-img {
+        width: 300px;
+    }
+
+    .error-message {
+        width: 300px;
+    }
+}
